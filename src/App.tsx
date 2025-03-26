@@ -8,10 +8,15 @@ import About from "./components/About"
 import Testimonials from "./components/Testimonials"
 import Newsletter from "./components/Newsletter"
 import Footer from "./components/Footer"
-import CartNotification from "./components/CartNotification"
 import { CartProvider } from "./context/CartContext"
+import { useScrollAnimation, useParallaxEffect, useSmoothScroll } from './hooks/useScrollAnimation';
+import { CartNotification } from './hooks/useCartNotification';
 
-function App() {
+const App = () => {
+  useScrollAnimation();
+  useParallaxEffect();
+  useSmoothScroll();
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle theme={theme} />
