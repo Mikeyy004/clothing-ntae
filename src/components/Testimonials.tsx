@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from "react"
 import styled from "styled-components"
-import { FiChevronLeft, FiChevronRight, FiStar } from "react-icons/fi"
 import type { TestimonialType } from "../types"
 
 const TestimonialsSection = styled.section`
@@ -96,6 +95,18 @@ const TestimonialContent = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     padding: 30px 20px;
   }
+`
+
+const StarIcon = styled.svg`
+  width: 20px;
+  height: 20px;
+  color: ${({ theme }) => theme.colors.secondary};
+`
+
+const ChevronIcon = styled.svg`
+  width: 24px;
+  height: 24px;
+  color: white;
 `
 
 const Rating = styled.div`
@@ -240,10 +251,30 @@ const Testimonials = () => {
               <TestimonialContent>
                 <Rating>
                   {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
-                    <FiStar key={i} fill={testimonial.rating >= i + 1 ? "currentColor" : "none"} />
+                    <StarIcon
+                      key={i}
+                      viewBox="0 0 24 24"
+                      fill={testimonial.rating >= i + 1 ? "currentColor" : "none"}
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </StarIcon>
                   ))}
                   {testimonial.rating % 1 !== 0 && (
-                    <FiStar fill="currentColor" style={{ clipPath: "inset(0 50% 0 0)" }} />
+                    <StarIcon
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ clipPath: "inset(0 50% 0 0)" }}
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </StarIcon>
                   )}
                 </Rating>
                 <TestimonialText>{testimonial.text}</TestimonialText>
@@ -258,15 +289,37 @@ const Testimonials = () => {
 
         <SliderControls>
           <SliderButton onClick={prevSlide}>
-            <FiChevronLeft />
+            <ChevronIcon
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </ChevronIcon>
           </SliderButton>
           <SliderDots>
             {testimonials.map((_, index) => (
-              <Dot key={index} active={currentSlide === index} onClick={() => goToSlide(index)} />
+              <Dot
+                key={index}
+                active={currentSlide === index}
+                onClick={() => goToSlide(index)}
+              />
             ))}
           </SliderDots>
           <SliderButton onClick={nextSlide}>
-            <FiChevronRight />
+            <ChevronIcon
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </ChevronIcon>
           </SliderButton>
         </SliderControls>
       </div>
