@@ -51,7 +51,7 @@ const CartNotification = () => {
   return (
     <NotificationContainer show={showNotification}>
       <NotificationIcon>
-        <FiCheckCircle />
+        <FiCheckCircle size={20} />
       </NotificationIcon>
       <NotificationText>Item added to your collection</NotificationText>
     </NotificationContainer>
