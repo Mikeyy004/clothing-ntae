@@ -25,7 +25,7 @@ export const useCartNotification = () => {
   return { notification, showNotification };
 };
 
-export const CartNotification = () => {
+export const CartNotification: React.FC = () => {
   const { notification } = useCartNotification();
 
   if (!notification) return null;
