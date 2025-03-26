@@ -3,7 +3,7 @@
 import React from 'react';
 import { useEffect } from "react"
 import styled from "styled-components"
-import { FiCheckCircle as CheckIcon } from "react-icons/fi"
+import { FiCheck } from "react-icons/fi"
 import { useCart } from "../context/CartContext"
 
 const NotificationContainer = styled.div<{ show: boolean }>`
@@ -51,7 +51,7 @@ const CartNotification = () => {
   return (
     <NotificationContainer show={showNotification}>
       <NotificationIcon>
-        <CheckIcon size={20} />
+        <FiCheck size={20} style={{ display: 'block' }} />
       </NotificationIcon>
       <NotificationText>Item added to your collection</NotificationText>
     </NotificationContainer>
